@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# MyApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app with three pages, a light/dark theme toggle, and a contact form. Built with Vite, Tailwind CSS v4, shadcn/ui, and React Router.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+From this folder:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open http://localhost:5173/
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+If you cloned the assignment repo, the app is in `code/start`.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## What it does
+
+- **Home / About / Features** — React Router switches pages without a reload. The header stays on every page.
+- **Cards and buttons** — shadcn/ui components used across the site.
+- **Contact form** — on Features. Name and email stack on a phone and sit side by side on a wider screen. Submit stays on the page and shows a thanks message.
+- **Responsive layout** — cards go 1 column on phones, 2 on tablets, 3 on desktop.
+
+## Theming
+
+The Dark Mode button lives in the header (`src/components/navbar.tsx`). It adds or removes a `dark` class on `<html>`.
+
+Colors are in `src/index.css`:
+
+- `:root` — light background and text
+- `.dark` — dark background and text
+
+Classes like `bg-background` and `bg-card` read those values, so the whole page flips when you toggle.
+
+## Screenshots
+
+Light, dark, and responsive shots are in `screenshots/` at the repo root.
